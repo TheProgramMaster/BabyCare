@@ -8,22 +8,25 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from './HomeScreen.js';
 import ProfileScreen from './ProfileScreen.js';
 import LoginPage from './LoginPage.js';
+import AccountRegistrationPage from './AccountRegistrationPage.js';
 /*function HomeScreen() {
   return (
     <View style={{alignItems: 'center', justifyContent: 'center' }}>
       <Text>Home Screen</Text>
     </View>
   );
-}*/
+}
+<Stack.Screen name="Login" component={LoginPage} />
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Profile" component={ProfileScreen} />  
+*/
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Login" component={LoginPage} />
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="Account Registration Page" component={AccountRegistrationPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
