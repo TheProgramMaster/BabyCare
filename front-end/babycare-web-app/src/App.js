@@ -9,6 +9,7 @@ import HomeScreen from './HomeScreen.js';
 import ProfileScreen from './ProfileScreen.js';
 import LoginPage from './LoginPage.js';
 import AccountRegistrationPage from './AccountRegistrationPage.js';
+import PasswordResetPage from './PasswordResetPage.js';
 /*function HomeScreen() {
   return (
     <View style={{alignItems: 'center', justifyContent: 'center' }}>
@@ -26,7 +27,7 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Account Registration Page" component={AccountRegistrationPage} />
+        <Stack.Screen name="Password Reset Page" component={PasswordResetPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
