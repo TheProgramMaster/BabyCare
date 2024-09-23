@@ -7,6 +7,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from './HomeScreen.js';
 import ProfileScreen from './ProfileScreen.js';
+import NavigationBar from './NavigationBar.js';
 import LoginPage from './LoginPage.js';
 import AccountRegistrationPage from './AccountRegistrationPage.js';
 import PasswordResetPage from './PasswordResetPage.js';
@@ -25,10 +26,13 @@ const Stack = createNativeStackNavigator();
 
 function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer initialRouteName="HomeScreen">
       <Stack.Navigator>
-        <Stack.Screen name="Password Reset Page" component={PasswordResetPage} />
+        <Stack.Screen name="Login" component={LoginPage} />
+        <Stack.Screen name="Register" component={AccountRegistrationPage} />
+        <Stack.Screen name="ResetPassword" component={PasswordResetPage} />
       </Stack.Navigator>
+      <NavigationBar />
     </NavigationContainer>
   );
 }
