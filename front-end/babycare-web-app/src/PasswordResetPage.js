@@ -24,7 +24,7 @@ const PasswordResetPage = () => {
             <TextInput
                 style={{height:40}}
                 placeholder="new password"
-                onChangeText={newNewPassword => setPassword(newNewPassword)}
+                onChangeText={newNewPassword => setNewPassword(newNewPassword)}
                 defaultValue={newPassword}
                 />
             </View>
