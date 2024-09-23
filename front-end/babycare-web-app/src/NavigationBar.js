@@ -9,6 +9,9 @@ const NavigationBar = () => {
     const navigation =  useNavigation();
     return (
         <View style={styles.navBar}>
+            <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
+                <Text style={styles.navItem}>Home Page</Text>
+            </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate('Register')}>
                 <Text style={styles.navItem}>Account Registration</Text>
             </TouchableOpacity>
@@ -17,6 +20,9 @@ const NavigationBar = () => {
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate('ResetPassword')}>
                 <Text style={styles.navItem}>Forgot Password?</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('GeneralFAQPage')}>
+                <Text style={styles.navItem}>General FAQ Page</Text>
             </TouchableOpacity>
         </View>
     );

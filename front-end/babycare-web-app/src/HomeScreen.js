@@ -11,9 +11,13 @@ const HomeScreen = ({navigation}) => {
     return(
         <View style={styles.container}>
             <NavigationBar />
-            <ScrollView contentContainerStyle={styles.scrollView}>
+            <View>
                 <Text style={styles.content}>Babycare Mobile Web App</Text>
-            </ScrollView>
+                <Text>Welcome to our team's babycare web mobile app!</Text>
+                <Text>Please take a minute to use our application for all of your 
+                    pregnancy and parental needs!!!
+                </Text>
+            </View>
         </View>
     );
 };

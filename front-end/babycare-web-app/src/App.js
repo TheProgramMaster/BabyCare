@@ -11,6 +11,7 @@ import NavigationBar from './NavigationBar.js';
 import LoginPage from './LoginPage.js';
 import AccountRegistrationPage from './AccountRegistrationPage.js';
 import PasswordResetPage from './PasswordResetPage.js';
+import GeneralFAQPage from './GeneralFAQPage.js';
 /*function HomeScreen() {
   return (
     <View style={{alignItems: 'center', justifyContent: 'center' }}>
@@ -26,11 +27,13 @@ const Stack = createNativeStackNavigator();
 
 function App() {
   return (
-    <NavigationContainer initialRouteName="HomeScreen">
-      <Stack.Navigator>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="HomeScreen">
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="Login" component={LoginPage} />
         <Stack.Screen name="Register" component={AccountRegistrationPage} />
         <Stack.Screen name="ResetPassword" component={PasswordResetPage} />
+        <Stack.Screen name="GeneralFAQPage" component={GeneralFAQPage} />
       </Stack.Navigator>
       <NavigationBar />
     </NavigationContainer>
