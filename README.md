@@ -1,6 +1,5 @@
 # BabyCare
 
-<<<<<<< HEAD
 ## Team Members
 
 The team members of our team are as follows:
@@ -17,7 +16,7 @@ Our team number listed under the section of this class is Group 2.
 
 ## Section
 
-The section number of this group project is section# 440-75_76-4248.
+The section number of this group project is section# 550-75_76-4248.
 
 ## Brief Description
 
@@ -36,6 +35,3 @@ client-side, but also may be used for mothers to select from one
 of many quality babysitters as well. We will also include an AI
 chatbot for patient use in our project.
 
-=======
-INCLUDE NAMES, GROUP NUMBER, CLASS SECTION, BRIEF DESCRIPTION FOR THE PROJECT
->>>>>>> a35beaeaba80f20a4ad8b9a121f6137198bf29f6
