@@ -1,5 +1,6 @@
 # BabyCare
 
+<<<<<<< HEAD
 ## Team Members
 
 The team members of our team are as follows:
@@ -35,3 +36,6 @@ client-side, but also may be used for mothers to select from one
 of many quality babysitters as well. We will also include an AI
 chatbot for patient use in our project.
 
+=======
+INCLUDE NAMES, GROUP NUMBER, CLASS SECTION, BRIEF DESCRIPTION FOR THE PROJECT
+>>>>>>> a35beaeaba80f20a4ad8b9a121f6137198bf29f6
