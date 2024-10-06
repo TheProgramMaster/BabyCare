@@ -5,6 +5,7 @@ import {Text, View, ScrollView, Image, StyleSheet, TouchableOpacity} from 'react
 import {useNavigation} from '@react-navigation/native';
 import {Button} from 'react-native';
 
+
 const NavigationBar = () => {
     const navigation =  useNavigation();
     return (

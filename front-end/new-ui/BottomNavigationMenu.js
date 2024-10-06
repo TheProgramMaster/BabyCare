@@ -5,6 +5,7 @@ import { BottomNavigation } from 'react-native-paper';
 import GeneralFAQPage from './GeneralFAQPage';
 import HomeScreen from './HomeScreen';
 import Login from './Login';
+import ChatBotPage from './ChatBotPage';
 
 const MusicRoute = () => <Text>Music</Text>;
 const AlbumsRoute = () => <Text>Albums</Text>;
@@ -17,8 +18,9 @@ const BottomNavigationMenu = () => {
     { key: 'home', title: 'Home', focusedIcon: 'home' },
     { key: 'faq', title: 'FAQ', focusedIcon: 'help-circle', unfocusedIcon: 'help-circle'},
 
-    { key: 'recents', title: 'Recents', focusedIcon: 'history' },
+    { key: 'recents', title: 'Log-In Page', focusedIcon: 'history' },
     { key: 'notifications', title: 'Notifications', focusedIcon: 'bell', unfocusedIcon: 'bell-outline' },
+    { key: 'chatBot', title: 'ChatBot', focusedIcon: 'chat', unfocusedIcon: 'chat-outline'},
   ]);
 
   const renderScene = BottomNavigation.SceneMap({
@@ -26,6 +28,7 @@ const BottomNavigationMenu = () => {
     faq: GeneralFAQPage,
     recents: Login,
     notifications: NotificationsRoute,
+    chatBot: ChatBotPage,
   });
 
   return (

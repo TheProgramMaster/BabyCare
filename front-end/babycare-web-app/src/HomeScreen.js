@@ -5,6 +5,7 @@ import {Text, View, ScrollView, Image, StyleSheet} from 'react-native';
 import {Button} from 'react-native';
 import NavigationBar from './NavigationBar.js';
 
+
 const Stack = createNativeStackNavigator();
 
 const HomeScreen = ({navigation}) => {

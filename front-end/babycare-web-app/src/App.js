@@ -12,6 +12,7 @@ import LoginPage from './LoginPage.js';
 import AccountRegistrationPage from './AccountRegistrationPage.js';
 import PasswordResetPage from './PasswordResetPage.js';
 import GeneralFAQPage from './GeneralFAQPage.js';
+
 /*function HomeScreen() {
   return (
     <View style={{alignItems: 'center', justifyContent: 'center' }}>
