@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { View, ScrollView, Image, TextInput, Button, StyleSheet} from 'react-native';
 import { Text } from 'react-native-paper';
 import axios from 'axios';
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         padding: 8,
         marginRight: 8,
-        color: 'white',
+        color: 'black',
     },
 });
 
@@ -60,33 +60,47 @@ const styles = StyleSheet.create({
 const ChatBotPage = () => {
     const [message, setMessage] = useState('');
     const [conversation, setConversation] = useState([])
+    const scrollViewRef = useRef();
 
     const handleChat =  async() => {
         if(!message.trim()) return;
         const newMessage = { sender: 'user', text: message };
+        setMessage('');
         setConversation((prev) => [...prev,newMessage]);
         try {
             const response = await axios.post('http://localhost:3001/chat', {
-                message
+                message,
             });
             const botReply = response.data.reply;
-            const botMessage = { sender: 'bot', text: botReply };
-            setConversation((prev) => [...prev, botMessage]);
+            if(Array.isArray(botReply)){
+                botReply.forEach(replyText => {
+                    const botMessage = { sender: 'bot', text: replyText };
+                    setConversation((prev) => [...prev, botMessage]);
+                });
+            } else{
+                const botMessage = { sender: 'bot', text: botReply };
+                setConversation((prev) => [...prev, botMessage]);
+            }
         } catch(error) {
             console.error('Error sending message:',error);
             const errorMessage = { sender: 'bot', text: 'Sorry, I am having trouble responding right now.'};
             setConversation((prev) => [...prev, errorMessage]);
         }
-        setMessage('');
     };
+
+    useEffect(() => {
+        scrollViewRef.current?.scrollToEnd({ animated: true });
+    }, [conversation]);
     return(
-        <View>
-            <Text>Welcome to our ChatBot AI page!</Text>
-            <Text>This AI ChatBot was built using wit.ai.</Text>
-            <Text>This ChatBot allows you as the patient to
+        <View style={styles.container}>
+            <Text style={styles.title}>Welcome to our ChatBot AI page!</Text>
+            <Text style={styles.description}>This AI ChatBot was built using GPT-4.</Text>
+            <Text style={styles.description}>This ChatBot allows you as the patient to
                 seek guidance and information 24/7, when doctor care is unavailable.
             </Text>
-            <ScrollView style={StyleSheet.chatContainer}>
+            <ScrollView style={styles.chatContainer}
+            contentContainerStyle={{ flexGrow: 1}}
+            ref={scrollViewRef}>
                 {conversation.map((msg, index) => (
                     <View
                         key={index}
@@ -105,6 +119,7 @@ const ChatBotPage = () => {
                     value={message}
                     onChangeText={setMessage}
                     placeholder="Type your message here..."
+                    placeholderTextColor="#888"
                 />
                 <Button title="send" onPress={handleChat} />
             </View>

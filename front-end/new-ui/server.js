@@ -23,7 +23,7 @@ app.post('/chat', async (req, res) => {
         const response = await axios.post(apiUrl, {
             model: "gpt-4",
             messages: [{ role: "user",content: message}],
-            max_tokens: 50,
+            max_tokens: 1024,
             temperature: 0.6,
         }, {
             headers: {
