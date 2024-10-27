@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 Let's do this thing!!!
+=======
+Let's do this thing!
+>>>>>>> origin
