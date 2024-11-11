@@ -52,7 +52,7 @@ class TokenService {
             access_key: TokenService.#app_access_key,
             room_id: room_id,
             user_id: user_id,
-            role: role,
+            role: 'guest',
             type: 'app',
             version: 2,
             iat: Math.floor(Date.now() / 1000),
