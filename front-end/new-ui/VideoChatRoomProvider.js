@@ -6,6 +6,7 @@ import JoinForm from './JoinForm';
 import Header from "./Header";
 import Conference from "./Conference";
 import Footer from './Footer';
+import Chat from './Chat';
 import {
     selectIsConnectedToRoom,
     useHMSStore
@@ -27,6 +28,7 @@ const VideoChatRoomProvider = () => {
             {isConnected ? (
                 <>
                     <Conference />
+                    <Chat />
                     <Footer />
                 </>
             ) : (
