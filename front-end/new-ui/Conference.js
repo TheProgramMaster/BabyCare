@@ -1,6 +1,7 @@
 import { selectPeers, useHMSStore } from "@100mslive/react-sdk";
 import React from "react";
 import Peer from "./Peer";
+import './conference.css';
 
 function Conference() {
     const peers = useHMSStore(selectPeers);
