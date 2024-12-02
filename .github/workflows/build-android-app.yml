@@ -23,17 +23,17 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd ./packages/app-web/
+          cd ./front-end/new-ui/android
           npm install # or yarn install, depending on your package manager
 
-      - name: Build application
+      - name: Build web version
         run: |
-          cd /front-end/new-ui/android
-          npm run build # or yarn build
+          cd ./front-end/new-ui/android
+          npx expo export --platform web # or yarn build
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v3
         with:
-          name: react-build
-          path: front-end/new-ui/android/build/
+          name: expo-web-build
+          path: ./front-end/new-ui/android/dist/
           retention-days: 3
