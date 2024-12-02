@@ -1,46 +1,39 @@
-name: "Build Android app"
+name: "Build React App"
 
 on:
+  workflow_dispatch:
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Install Java
-        uses: actions/setup-java@v3
-        with:
-          java-version: 17
-          distribution: adopt
-          cache: gradle
-
-      - name: Validate Gradle wrapper
-        uses: gradle/wrapper-validation-action@v1
-
-      - name: Setup Node  
+      - name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
-          cache: 'yarn'
+          node-version: '16'
 
-      - name: Run Yarn Install
+      - name: Install dependencies
         run: |
-             npm i -g corepack
-             yarn install
+          cd ./packages/app-web/
+          npm install # or yarn install, depending on your package manager
 
       - name: Build application
         run: |
-             cd android
-             ./gradlew assembleRelease
+          cd ./packages/app-web/
+          npm run build # or yarn build
 
-      - name: Upload application
-        uses: actions/upload-artifact@v4
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v2
         with:
-          name: app
-          path: android/app/build/outputs/apk/release/app-release.apk
+          name: react-build
+          path: front-end/new-ui/android/build/
           retention-days: 3
