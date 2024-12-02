@@ -28,7 +28,7 @@ jobs:
 
       - name: Build application
         run: |
-          cd ./packages/app-web/
+          cd /front-end/new-ui/android
           npm run build # or yarn build
 
       - name: Upload build artifact
