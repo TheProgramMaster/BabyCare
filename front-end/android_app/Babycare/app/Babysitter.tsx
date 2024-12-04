@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ScrollView } from 'react-native';
 import {
   View,
   Text,
@@ -63,10 +64,7 @@ export default function FindBabysitterScreen() {
   };
 
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#FFB6C1', dark: '#8B475D' }}
-      stickyHeaderHeight={Platform.select({ ios: 85, android: 65 })}
-    >
+    <ScrollView>
       <View style={styles.container}>
         {Platform.OS === 'ios' ? (
           <DateTimePicker
@@ -104,7 +102,7 @@ export default function FindBabysitterScreen() {
           />
         ))}
       </View>
-    </ParallaxScrollView>
+    </ScrollView>
   );
 }
 
