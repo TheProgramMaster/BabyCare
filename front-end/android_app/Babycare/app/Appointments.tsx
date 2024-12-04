@@ -6,6 +6,8 @@ import { ThemedView } from '@/components/ThemedView';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
+
+
 // Define doctor type
 interface Doctor {
   id: number;
@@ -40,8 +42,13 @@ const doctors: Doctor[] = [
   }
 ];
 
-// Add TimeSlot component
-const TimeSlot = ({ time, isSelected, onSelect }) => (
+interface TimeSlotProps {
+  time: string;  // Explicitly define the type of `time` as string
+  isSelected: boolean;
+  onSelect: () => void;
+}
+
+const TimeSlot = ({ time, isSelected, onSelect }: TimeSlotProps) => (
   <TouchableOpacity
     onPress={onSelect}
     style={[
@@ -57,6 +64,7 @@ const TimeSlot = ({ time, isSelected, onSelect }) => (
     </Text>
   </TouchableOpacity>
 );
+
 
 export default function AppointmentsScreen() {
   const [selectedDoctor, setSelectedDoctor] = useState<Doctor | null>(null);
@@ -80,10 +88,7 @@ export default function AppointmentsScreen() {
   };
 
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      stickyHeaderHeight={Platform.select({ ios: 85, android: 65 })}
-    >
+    <ScrollView>
       <View style={{ padding: 16 }}>
         {Platform.OS === 'ios' ? (
           <DateTimePicker
@@ -116,7 +121,7 @@ export default function AppointmentsScreen() {
           
           {doctors.map((doctor) => (
             <View key={doctor.id} style={styles.doctorCard}>
-              <Image source={doctor.imageUrl} style={{ width: 60, height: 60, borderRadius: 30 }} />
+              <Image source={require('../assets/images/doctor.jpg')} style={{ width: 60, height: 60, borderRadius: 30 }} />
               <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{doctor.name}</Text>
               <Text style={{ color: '#666' }}>{doctor.specialty}</Text>
               <View style={styles.timeContainer}>
@@ -133,7 +138,7 @@ export default function AppointmentsScreen() {
           ))}
         </ThemedView>
       </View>
-    </ParallaxScrollView>
+    </ScrollView>
   );
 }
 

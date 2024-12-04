@@ -31,28 +31,28 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen 
-          name="chat"
+          name="Chat"
           options={{
             headerShown: true,
             presentation: 'modal'
           }}
         />
         <Stack.Screen 
-          name="videochat"
+          name="VideoChat"
           options={{
             headerShown: true,
             presentation: 'modal'
           }}
         />
         <Stack.Screen 
-          name="appointments"
+          name="Appointments"
           options={{
             headerShown: true,
             presentation: 'modal'
           }}
         />
         <Stack.Screen 
-          name="babysitter"
+          name="Babysitter"
           options={{
             headerShown: true,
             presentation: 'modal'
