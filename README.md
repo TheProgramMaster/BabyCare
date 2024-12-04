@@ -1,5 +1,7 @@
 # BabyCare
 
+![plot](./front-end/new-ui/android/assets/baby-care-logo.jpg)
+
 ## Team Members
 
 The team members of our team are as follows:
